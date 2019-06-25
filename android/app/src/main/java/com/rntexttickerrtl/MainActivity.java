@@ -1,7 +1,8 @@
 package com.rntexttickerrtl;
 
 import com.facebook.react.ReactActivity;
-
+import com.facebook.react.modules.i18nmanager.I18nUtil;
+import android.os.Bundle;
 public class MainActivity extends ReactActivity {
 
     /**
@@ -12,4 +13,12 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "rnTextTickerRtl";
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+        sharedI18nUtilInstance.allowRTL(getApplicationContext(), true);
+    }
+
 }
